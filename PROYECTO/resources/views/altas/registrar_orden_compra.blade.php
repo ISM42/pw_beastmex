@@ -1,19 +1,20 @@
 
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.plantilla')
+
+@section('contenido')
+
+@include('partials.navbar_compras')
 
         <title>REGISTRAR ORDEN DE COMPRA</title>
 
-     
-    </head>
-    <body>
         <h1> REGISTRAR ORDEN DE COMPRA </h1>
         
     <p></p>
     <p></p>
+
+    <div class="container">
+        <div class="card">
+  <div class="card-body">
 
       <label class="form-label">Nombre de la orden:</label>
       <input type="text" class="form-control" required/>
@@ -39,13 +40,20 @@
       
     <p></p>
     <p></p>
+
+        <input type="text" class="form-control" required/> Enviar por email</input>
+      
+    <p></p>
+    <p></p>
       
 
-    <a href="/"><button type="button"> Guardar</button></a>
+    <a href="/"><button type="button"> Generar oden de compra</button></a>
     <a href="/"><button type="button"> Cancelar </button></a>
       
     <p></p>
     <p></p>
    
-    </body>
-</html>
+  </div>
+</div>
+</div>
+    @endsection('contenido')
