@@ -8,7 +8,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
       <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Registrar Usuario</a>
+          <a class="nav-link" aria-current="page" href="/registro_usuario">Registrar Usuario</a>
         </li>
 
         <li class="nav-item">
@@ -16,15 +16,15 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Compras</a>
+          <a class="nav-link" href="/consulta_usuarios">Compras</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Ventas</a>
+          <a class="nav-link" href="/consulta_ventas">Ventas</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Ganancias</a>
+          <a class="nav-link" href="/consulta_ganancias_gerente">Ganancias</a>
         </li>
 
     </div>

@@ -11,8 +11,9 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <label class="form-label">Nombre ticket</label>
-            <input type="text" class="form-control" required />
+            <!-- <label class="form-label">Número de ticket</label>
+            <input type="text" class="form-control" required /> -->
+            
 
             <p></p>
             <p></p>
@@ -59,8 +60,7 @@
             <p></p>
             <p></p>
 
-            <label class="form-label"
-                >Precio de venta/label>
+            <label class="form-label">Precio de venta</label>
                 <input type="text" class="form-control" required />
 
                 <p></p>

@@ -8,15 +8,15 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Registrar Proveedor</a>
+          <a class="nav-link" aria-current="page" href="/alta_proveedor">Registrar Proveedor</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Consultar Proveedor</a>
+          <a class="nav-link" aria-current="page" href="/consulta_proveedor">Consultar Proveedor</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Consultar Producto</a>
+          <a class="nav-link" href="/consulta_producto">Consultar Producto</a>
         </li>
 
         <li class="nav-item">
@@ -25,7 +25,7 @@
 
 
         <li class="nav-item">
-          <a class="nav-link" href="">Consultar orden de compra</a>
+          <a class="nav-link" href="/consulta_oc">Consultar orden de compra</a>
         </li>
 
     </div>
