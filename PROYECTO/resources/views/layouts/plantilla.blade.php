@@ -6,9 +6,10 @@
 
     @vite(['resources/js/app.js'])
 
+
 </head>
 <body>
-    @include('partials.barra_navegacion')
+
 
 @yield('contenido')
     

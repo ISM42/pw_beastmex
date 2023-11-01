@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.plantilla')
+
+@section('contenido')
+
+@include('partials.navbar_ventas')
 
         <title>CONSULTAR PRODUCTO</title>
 
@@ -11,15 +11,13 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-    </head>
 
-    <body>
+    <h1>CONSULTAR PRODUCTO</h1>
 
     <table class="table">
   <thead>
     <tr>
       <th>id</th>
-      <th>First</th>
       <th>Nombre</th>
       <th>No. Serie</th>
       <th>Marca</th>
@@ -35,34 +33,23 @@
 
   <tbody>
     <tr>
-      <th scope="row"></th>
+      <th></th>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th scope="row"></th>
+      <th></th>
       <td></td>
       <td></td>
-      <td></td>
+      <td>
+      <a href="/"><button type="button"> Editar</button></a>
+    <a href="/"><button type="button"> Eliminar </button></a>
+      </td>
     </tr>
-    <tr>
-      <th ></th>
-      <td ></td>
-      <td></td>
-    </tr>
-
 
   </tbody>
 
 </table>
 
-  <a href="/"><button type="button"> Editar</button></a>
-    <a href="/"><button type="button"> Eliminar </button></a>
-    
-
-
-   
-    </body>
-</html>
-
+@endsection('contenido')

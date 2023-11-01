@@ -1,9 +1,12 @@
 @extends('layouts.plantilla') @section('contenido')
-@include('partials.navbar_gerencia')
+@include('partials.navbar_almacen')
 
-<title>EDITAR USUARIO</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<h1>EDITAR USUARIO</h1>
+<title>REGISTRAR USUARIO</title>
+
+<h1>REGISTRAR USUARIO</h1>
 
 <p></p>
 <p></p>
