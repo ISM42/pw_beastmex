@@ -8,19 +8,19 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Productos</a>
+          <a class="nav-link" aria-current="page" href="/consulta_producto">Productos</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Generar orden de venta</a>
+          <a class="nav-link" href="/registro_venta">Generar ticket de venta</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Tickets</a>
+          <a class="nav-link" href="/consulta_tickets">Tickets</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Ganancias</a>
+          <a class="nav-link" href="/consulta_ganancias_gerente">Ganancias</a>
         </li>
 
     </div>

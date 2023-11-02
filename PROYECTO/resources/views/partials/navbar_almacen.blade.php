@@ -11,11 +11,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" href="">Consultar Producto</a>
+          <a class="nav-link" href="/consulta_producto">Consultar Producto</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Registrar Producto</a>
+          <a class="nav-link" href="/reg_producto">Registrar Producto</a>
         </li>
 
         <li class="nav-item">
