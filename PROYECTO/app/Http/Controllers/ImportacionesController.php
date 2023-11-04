@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ValidadorAltaProveedor;
+use App\Http\Requests\ValidadorRegistrarOC;
+use App\Http\Requests\ValidadorRegistrarProducto;
+use App\Http\Requests\ValidadorRegistrarUsuario;
+use App\Http\Requests\ValidadorRegistrarVenta;
+
 class ImportacionesController extends Controller
 {
-    //
+    //MÉTODOS PARA MOSTRAR VISTAS
     Public function metodoLogin(){ 
         return view('login'); 
  
@@ -79,4 +85,28 @@ class ImportacionesController extends Controller
     Public function metodoEditarUsuario(){ 
         return view('editar.editar_usuario'); 
     }
+
+
+    // MÉTODOS PARA GUARDAR INFO EN FORMULARIOS
+
+    public function GuardarAltaP(ValidadorAltaProveedor $req){
+    return redirect('/alta_proveedor')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarOrdenC(ValidadorRegistrarOC $req){
+    return redirect('/reg_orden_compra')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegProd(ValidadorRegistrarProducto $req){
+    return redirect('/reg_producto')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegUsuario(ValidadorRegistrarUsuario $req){
+    return redirect('/registro_usuario')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegVenta(ValidadorRegistrarVenta $req){
+    return redirect('/registro_venta')->with('confirmacion','Tu información llegó al controlador'); 
+    }
 }
+
