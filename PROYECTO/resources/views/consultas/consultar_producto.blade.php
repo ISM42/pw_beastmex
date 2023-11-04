@@ -3,7 +3,7 @@
 @section('contenido')
 
 @include('partials.navbar_ventas')
-
+<p></p>
         <title>CONSULTAR PRODUCTO</title>
 
         <form class="d-flex" role="search">

@@ -3,7 +3,7 @@
 @section('contenido')
 
 @include('partials.navbar_gerencia')
-
+<p></p>
         <title>CONSULTAR USUARIO</title>
 
         <form class="d-flex" role="search">

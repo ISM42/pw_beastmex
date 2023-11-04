@@ -3,6 +3,7 @@
 @section('contenido')
 
 @include('partials.navbar_compras')
+<p></p>
 
         <title>CONSULTAR PROVEEDOR</title>
 
