@@ -1,4 +1,4 @@
-@extends('layouts.plantilla') @section('contenido')
+@extends('layouts.plantilla') @section('contenido')  @section('title','EDITAR USUARIO')
 @include('partials.navbar_gerencia')
 
 <title>EDITAR USUARIO</title>
@@ -8,51 +8,54 @@
 <p></p>
 <p></p>
 
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <label class="form-label">Nombre usuario:</label>
-            <input type="text" class="form-control" required />
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <form class="form-signin">
+                    <div style="text-align:center;">
+                    <img class="mb-4" src="https://w7.pngwing.com/pngs/106/157/png-transparent-export-import-product-marketing-e-commerce-eagle-on-a-globe-furniture-globe-text.png" alt="" width="72" height="57">
+                    <h1 class="h3 mb-3 fw-normal">EDITAR USUARIO</h1>
+                </div>
 
-            <p></p>
-            <p></p>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Nombre usuario</label>
+                    </div>
 
-            <label class="form-label">Apellido paterno</label>
-            <input type="text" class="form-control" required />
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Apellido paterno</label>
+                    </div>
 
-            <p></p>
-            <p></p>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Apellido materno</label>
+                    </div>
 
-            <label class="form-label">Apellido materno</label>
-            <input type="text" class="form-control" required />
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email </label>
+                    </div>
 
-            <p></p>
-            <p></p>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Puesto</label>
+                    </div>
 
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" required />
+                    <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
 
-            <p></p>
-            <p></p>
-
-            <label class="form-label">Puesto</label>
-            <input type="text" class="form-control" required />
-
-            <p></p>
-            <p></p>
-
-            <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" required />
-
-            <p></p>
-            <p></p>
-
-            <a href="/"><button type="button">Guardar</button></a>
-            <a href="/"><button type="button">Cancelar</button></a>
-
-            <p></p>
-            <p></p>
+                    <p></p>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Editar</button>
+                    <p></p>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Cancelar</button>
+                    <p class="mt-5 mb-3 text-body-secondary">&copy; 2023–2023</p>
+                </form>
+            </div>
         </div>
-    </div>
-</div>
+    </main>
+</body>
 @endsection('contenido')
