@@ -21,24 +21,36 @@
                     <h1 class="h3 mb-3 fw-normal">REGISTRAR PROVEEDOR</h1>
                 </div>
 
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingPassword" placeholder="Password" name="_empresa" value="{{old('_empresa')}}">
+                    <p class="text-danger fst-italic">{{$errors->first('_empresa')}} </p>
+                    <label for="floatingPassword">Empresa</label>
+                </div>
+
+
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="_Ncontacto" value="{{old('_Ncontacto')}}"/>
+                        <p class="text-danger fst-italic">{{$errors->first('_Ncontacto')}} </p>
                         <label for="floatingInput">Producto</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Contacto</label>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="_Ncontacto" value="{{old('_Ncontacto')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_Ncontacto')}} </p>
+                        <label for="floatingInput">Nombre del Contacto</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Empresa</label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="_CEcontacto" value="{{old('_CEcontacto')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_CEcontacto')}} </p>
+                        <label for="floatingInput">Correo electrónico:</label>
                     </div>
 
+                    
                     <div class="form-floating">
-                        <input type="tel" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">NO. Telefónico</label>
+                        <input type="tel" class="form-control" id="floatingPassword" placeholder="Password"  name="_TelContacto" value="{{old('_TelContacto')}}">
+                        <label for="floatingPassword">Teléfono:</label>
+                        <p class="text-danger fst-italic">{{$errors->first('_producto')}} </p>
                     </div>
 
                     <p> </p> 

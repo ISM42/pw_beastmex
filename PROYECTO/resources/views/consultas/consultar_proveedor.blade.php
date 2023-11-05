@@ -7,44 +7,52 @@
 
         <title>CONSULTAR PROVEEDOR</title>
 
-        <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
-    <h1>CONSULTAR PROVEEDOR</h1>
-
-    <table class="table">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Producto</th>
-      <th>Conatcto</th>
-      <th>Empresa</th>
-      <th>No. telefono</th>
-      
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <th></th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td></td>
-      <td></td>
-      <td>
-      <a href="/"><button type="button"> Editar</button></a>
-    <a href="/"><button type="button"> Eliminar </button></a>
-      </td>
-    </tr>
-
-  </tbody>
-
-</table>
+        
+        <p></p>
+        <body>
+          <div class="container mt-5">
+            <h1>Listado de Proveedores</h1>
+            <p></p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Producto</th>
+                  <th>Contacto</th>
+                  <th>Empresa</th>
+                  <th>Número de Teléfono</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Aquí debes ingresar tus datos dinámicamente desde la base de datos -->
+                <tr>
+                  <td>1</td>
+                  <td>Producto 1</td>
+                  <td>Contacto 1</td>
+                  <td>Empresa A</td>
+                  <td>123-456-7890</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Producto 2</td>
+                  <td>Contacto 2</td>
+                  <td>Empresa B</td>
+                  <td>987-654-3210</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                  </td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+              </tbody>
+            </table>
+          </div>
+          
+        </body>
 
 @endsection('contenido')
