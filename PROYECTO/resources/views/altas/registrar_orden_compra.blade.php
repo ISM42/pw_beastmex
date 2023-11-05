@@ -11,43 +11,52 @@
         
     <p></p>
     <p></p>
-
+    @section('contenido')
     <div class="container">
+        <form method= "POST" action="/guardarRegOC">
+        @csrf
+
+@if(session()->has ('confirmacion'))
+<script>   Swal.fire('Información "{{session('confirmacion')}}" guardada')</script>
+@endif
+
+@if($errors->any())
+@foreach($errors->all() as $error)
+
+@endforeach
+@endif
         <div class="card">
   <div class="card-body">
 
-      <label class="form-label">Nombre de la orden:</label>
-      <input type="text" class="form-control" required/>
+  <div>
+      <label class="form-label">Producto:</label>
+      <input  class="form-control" name="_prod" value="{{old('_prod')}}"/>
+            <p class="text-danger fst-italic">{{$errors->first('_prod')}} </p>
+</div>
     
     <p></p>
     <p></p>
       
-    
-        <label class="form-label">Empresa</label>
-        <input type="text" class="form-control" required/>
-      
+    <div>
+        <label class="form-label">Cantidad</label>
+        <input  class="form-control" name="_cant" value="{{old('_cant')}}"/>
+            <p class="text-danger fst-italic">{{$errors->first('_cant')}} </p>
+</div>
     <p></p>
     <p></p>
 
-        <label class="form-label">Productos requeridos</label>
-        <input type="number" class="form-control" required/>
-     
-    <p></p>
-    <p></p>
-      
+        <div>
         <label class="form-label">Proveedor</label>
-        <input type="text" class="form-control" required/>
-      
+        <input  class="form-control" name="_prov" value="{{old('_prov')}}"/>
+            <p class="text-danger fst-italic">{{$errors->first('_prov')}} </p>
+</div>
     <p></p>
     <p></p>
 
-        <input type="text" class="form-control" required/> Enviar por email</input>
-      
-    <p></p>
-    <p></p>
+
       
 
-    <a href="/"><button type="button"> Generar oden de compra</button></a>
+<button type="submit"> Generar oden de compra</button>
     <a href="/"><button type="button"> Cancelar </button></a>
       
     <p></p>
@@ -56,4 +65,5 @@
   </div>
 </div>
 </div>
-    @endsection('contenido')
+</form>
+    @endsection

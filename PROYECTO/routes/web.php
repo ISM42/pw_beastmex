@@ -61,4 +61,12 @@ Route::get('/editar_proveedor',[ImportacionesController::class,'metodoEditarProv
 Route::get('/editar_usuario',[ImportacionesController::class,'metodoEditarUsuario'])->name('e_usuario');
 
 // RUTAS DE TIPO POST PARA GUARDAR INFO DE FORMULARIOS
+
+//rutas para fomularios Altas
 Route::post('/guardarAltaProveedor',[ImportacionesController::class,'GuardarAltaP'])->name('guardarAP');
+Route::post('/guardarRegOC',[ImportacionesController::class,'GuardarOrdenC'])->name('guardarOC');
+Route::post('/guardarRegProd',[ImportacionesController::class,'GuardarRegProd'])->name('guardarRP');
+Route::post('/guardarRegUsuario',[ImportacionesController::class,'GuardarRegUsuario'])->name('guardarRU');
+Route::post('/guardarRegVenta',[ImportacionesController::class,'GuardarRegVenta'])->name('guardarRV');
+
+//otras rutas
