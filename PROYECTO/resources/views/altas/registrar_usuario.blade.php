@@ -10,7 +10,20 @@
 
 <p></p>
 <p></p>
+@section('contenido')
+<div class="container">
+<form method= "POST" action="/guardarRegUsuario">
+@csrf
 
+@if(session()->has ('confirmacion'))
+<script>   Swal.fire('Información "{{session('confirmacion')}}" guardada')</script>
+@endif
+
+@if($errors->any())
+@foreach($errors->all() as $error)
+
+@endforeach
+@endif
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="container">
         <div class="row justify-content-center">
@@ -22,32 +35,38 @@
                 </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="" class="form-control" id="floatingPassword" name="_nusuario" value="{{old('_nusuario')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_nusuario')}} </p>
                         <label for="floatingPassword">Nombre usuario</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="" class="form-control" id="floatingPassword" name="_ap" value="{{old('_ap')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_ap')}} </p>
                         <label for="floatingPassword">Apellido paterno</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="" class="form-control" id="floatingPassword" name="_am" value="{{old('_am')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_am')}} </p>
                         <label for="floatingPassword">Apellido materno</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="" class="form-control" id="floatingInput" name="_email" value="{{old('_email')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_email')}} </p>
                         <label for="floatingPassword">Email</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="" class="form-control" id="floatingPassword"  name="_puesto" value="{{old('_puesto')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_puesto')}} </p>
                         <label for="floatingPassword">Puesto</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="email" placeholder="Password">
+                        <input type="" class="form-control" id="email" name="_password" value="{{old('_password')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_password')}} </p>
                         <label for="floatingPassword">Contraseña</label>
                     </div>
 
