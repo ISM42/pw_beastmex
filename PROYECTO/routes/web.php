@@ -43,3 +43,6 @@ Route::post('/guardarRegUsuario',[ImportacionesController::class,'GuardarRegUsua
 Route::post('/guardarRegVenta',[ImportacionesController::class,'GuardarRegVenta'])->name('guardarRV');
 
 //otras rutas
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

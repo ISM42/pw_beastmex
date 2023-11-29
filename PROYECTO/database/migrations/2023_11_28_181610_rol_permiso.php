@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('compras', function (Blueprint $table) {
+        Schema::create('rol_permiso', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_producto'); // FK de Producto
-            $table->unsignedBigInteger('id_proveedor'); // FK de Proveedor
-            $table->integer('cantidad');
-            $table->date('fecha_compra');
+            $table->unsignedBigInteger('id_rol'); // FK de Rol
+            $table->unsignedBigInteger('id_permiso'); // FK de Permiso
+            
             $table->timestamps();
         
             // Definición de las llaves foráneas
-            $table->foreign('id_producto')->references('id')->on('productos');
-            $table->foreign('id_proveedor')->references('id')->on('proveedores');
+            $table->foreign('id_rol')->references('id')->on('roles');
+            $table->foreign('id_permiso')->references('id')->on('permisos');
         });
         
     }
