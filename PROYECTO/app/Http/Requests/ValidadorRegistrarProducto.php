@@ -29,8 +29,7 @@ class ValidadorRegistrarProducto extends FormRequest
             '_cantidad' => 'required|numeric|min:5',
             '_costoCompra' => 'required|numeric',
             '_precioventa' => 'required|numeric',
-            '_fecha' => 'required|date_format',
-            '_foto' => 'required|image',
+            
         ];
     }
 }

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Offcanvas navbar template · Bootstrap v5.3</title>
+   
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
 
@@ -118,7 +118,7 @@
         </li>
 
           <li class="nav-item">
-          <a class="nav-link" href="/reg_producto">Registrar Producto</a>
+          <a class="nav-link" href="{{route('producto.create')}}">Registrar Producto</a>
         </li>
 
         
