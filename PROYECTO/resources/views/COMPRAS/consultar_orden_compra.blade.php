@@ -4,7 +4,7 @@
 
 @include('partials.navbar_compras')
 <p></p>
-    <title>CONSULTAR ORDEN DE COMPRA</title>
+    <title>CONSULTAR ORDENES DE COMPRA</title>
 
     <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -15,41 +15,36 @@
 
 
 <div class="container mt-5">
-  <h1>Consultar Orden de Compra</h1>
+  <h1>Consultar órdenes de compra</h1>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Nombre de la orden</th>
-        <th>Empresa</th>
-        <th>Productos requeridos</th>
+        <th>Producto</th>
         <th>Proveedor</th>
+        <th>Cantidad </th>
+        <th>Fecha de compra</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <!-- Aquí debes ingresar tus datos dinámicamente desde la base de datos -->
       <tr>
-        <td>1</td>
-        <td>Orden 1</td>
-        <td>Empresa A</td>
-        <td>Producto X, Producto Y, Producto Z</td>
-        <td>Proveedor 1</td>
+        
+         
+      @foreach($consulOC as $item)
+    <tr>
+        <td>{{ $item->id }}</td>
+        <td>{{ $item->nombre_producto }}</td>
+        <td>{{ $item->nombre_empresa }}</td>
+        <td>{{ $item->cantidad }}</td>
+        <td>{{ $item->fecha_compra }}</td>
         <td>
-          <button class="btn btn-primary btn-sm">Editar</button>
-          <button class="btn btn-danger btn-sm">Eliminar</button>
+            <button class="btn btn-primary btn-sm">Editar</button>
+            <button class="btn btn-danger btn-sm">Eliminar</button>
         </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Orden 2</td>
-        <td>Empresa B</td>
-        <td>Producto A, Producto B</td>
-        <td>Proveedor 2</td>
-        <td>
-          <button class="btn btn-primary btn-sm">Editar</button>
-          <button class="btn btn-danger btn-sm">Eliminar</button>
-        </td>
+    </tr>
+@endforeach
       </tr>
       <!-- Agrega más filas según sea necesario -->
     </tbody>

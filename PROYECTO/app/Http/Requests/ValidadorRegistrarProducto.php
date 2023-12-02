@@ -23,10 +23,10 @@ class ValidadorRegistrarProducto extends FormRequest
     {
         return [
             //
-            '_nproducto' => 'required|min:5',
+            '_nproducto' => 'required',
             '_nserie' => 'required|numeric|min:5',
             '_marca' => 'required|',
-            '_cantidad' => 'required|numeric|min:5',
+            '_cantidad' => 'required|numeric',
             '_costoCompra' => 'required|numeric',
             '_foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             

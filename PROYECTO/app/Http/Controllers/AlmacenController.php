@@ -14,23 +14,35 @@ class AlmacenController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    
+
+     public function index(Request $request)
 {
     $buscarpor = $request->get('buscarpor');
 
-    if ($buscarpor) {
-        $consulProducto = DB::table('productos')
-            ->where(function ($query) use ($buscarpor) {
-                $query->where('nombre', 'like', '%' . $buscarpor . '%')
-                      ->orWhere('num_serie', 'like', '%' . $buscarpor . '%');
-            })
-            ->get();
-    } else {
-        $consulProducto = DB::table('productos')->get();
-    }
+    $consulProducto = DB::table('productos')
+        ->select(
+            'id',
+            'nombre',
+            'num_serie',
+            'marca',
+            'cantidad',
+            'costo_compra',
+            'fecha_ingreso',
+            'foto',
+            DB::raw('ROUND(costo_compra * 1.55, 2) as precio_venta') // Calcula el precio de venta sumando el 55% al costo compra
+        )
+        ->when($buscarpor, function ($query) use ($buscarpor) {
+            $query->where('nombre', 'like', '%' . $buscarpor . '%')
+                ->orWhere('num_serie', 'like', '%' . $buscarpor . '%');
+        })
+        ->orderBy('cantidad', 'asc') // Ordena por cantidad de unidades en existencia en orden ascendente
+        ->get();
 
     return view('almacen.consultar_producto', compact('consulProducto', 'buscarpor'));
 }
+     
+    
 
 
 

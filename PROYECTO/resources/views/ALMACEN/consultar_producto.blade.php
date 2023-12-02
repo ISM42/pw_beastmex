@@ -29,7 +29,8 @@
                 <th scope="col">No. serie</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Cantidad</th>
-                <th scope="col">Costo_compra</th>
+                <th scope="col">Costo compra</th>
+                <th scope="col">Precio venta</th>
                 <th scope="col">Fecha ingreso</th>
                 <th scope="col">Imagen</th>
                 <th scope="col">Acciones</th>
@@ -44,6 +45,7 @@
                 <td>{{ $item->marca }}</td>
                 <td>{{ $item->cantidad }}</td>
                 <td>{{ $item->costo_compra }}</td>
+                <td>{{ $item->precio_venta }}</td>
                 <td>{{ $item->fecha_ingreso }}</td>
                 <td>{{-- Imagen --}}</td>
                 <td>

@@ -121,7 +121,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="file" class="form-control" id="email" name="_costoCompra" value="{{$item->foto}}">
+                        <input type="file" class="form-control" id="email" name="_foto" value="{{$item->foto}}">
                         <p class="text-danger fst-italic">{{$errors->first('_foto')}} </p>
                         <label for="floatingPassword">Imagen</label>
                     </div>

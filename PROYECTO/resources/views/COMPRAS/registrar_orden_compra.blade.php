@@ -14,7 +14,7 @@
     <p></p>
     @section('contenido')
     <div class="container">
-        <form method= "POST" action="/guardarRegOC">
+        <form method= "POST" action="/occompras">
         @csrf
 
 @if(session()->has ('confirmacion'))
@@ -36,24 +36,32 @@
                     <h1 class="h3 mb-3 fw-normal">REGISTRAR ORDEN DE COMPRA</h1>
                 </div>
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password"  name="_prod" value="{{old('_prod')}}"/>
-                        <p class="text-danger fst-italic">{{$errors->first('_prod')}} </p>
-                        <label for="floatingPassword">Producto</label>
-                    </div>
+                    <!-- Selector de producto -->
+    <div class="form-group">
+        <label for="_idprod">Seleccionar Producto</label>
+        <select class="form-control" name="_idprod">
+            @foreach($productos as $producto)
+                <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
+            @endforeach
+        </select>
+    </div>
 
 
                     <div class="form-floating">
-                        <input type="number" class="form-control" name="_cant" value="{{old('_cant')}}"/>
-                        <p class="text-danger fst-italic">{{$errors->first('_cant')}} </p>
+                        <input type="number" class="form-control" name="_cantidad" value="{{old('_cantidad')}}"/>
+                        <p class="text-danger fst-italic">{{$errors->first('_cantidad')}} </p>
                         <label for="floatingPassword">Cantidad</label>
                     </div>
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password"  name="_prov" value="{{old('_prov')}}"/>
-                        <p class="text-danger fst-italic">{{$errors->first('_prov')}} </p>
-                        <label for="floatingPassword">Proveedor</label>
-                    </div>
+                         <!-- Selector de proveedor -->
+<div class="form-group">
+    <label for="_idprov">Seleccionar Proveedor</label>
+    <select class="form-control" name="_idprov">
+        @foreach($proveedores as $proveedor)
+            <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_empresa }}</option>
+        @endforeach
+    </select>
+</div>
 
                     
 
