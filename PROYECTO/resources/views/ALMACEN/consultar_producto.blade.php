@@ -11,7 +11,7 @@
 
      
     <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+        <input name="buscarpor" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" value="{{$buscarpor}}">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
     </form>
     <br>

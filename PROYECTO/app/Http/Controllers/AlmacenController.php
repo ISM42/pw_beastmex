@@ -14,11 +14,25 @@ class AlmacenController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Request $request)
+{
+    $buscarpor = $request->get('buscarpor');
+
+    if ($buscarpor) {
+        $consulProducto = DB::table('productos')
+            ->where(function ($query) use ($buscarpor) {
+                $query->where('nombre', 'like', '%' . $buscarpor . '%')
+                      ->orWhere('num_serie', 'like', '%' . $buscarpor . '%');
+            })
+            ->get();
+    } else {
         $consulProducto = DB::table('productos')->get();
-        return view('almacen.consultar_producto',compact('consulProducto'));
     }
+
+    return view('almacen.consultar_producto', compact('consulProducto', 'buscarpor'));
+}
+
+
 
     /**
      * Show the form for creating a new resource.
