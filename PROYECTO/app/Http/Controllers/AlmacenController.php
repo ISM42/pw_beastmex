@@ -57,7 +57,7 @@ class AlmacenController extends Controller
         ]
     ));
 
-    return redirect('/producto/create')->with('confirmacion', 'Tu producto ha sido registrado correctamente');
+    return redirect('/producto/consulta')->with('confirmacion', 'Registro exitoso');
 }
 
 
@@ -93,7 +93,8 @@ class AlmacenController extends Controller
             "updated_at"=>Carbon::now(),
 
         ]);
-        return redirect('/producto/create')->with('confirmacion','tu recuerdo llegó al controlador');
+        
+        return redirect('/producto/consulta')->with('confirmacion','Actualización exitosa');
         
     }
 
@@ -102,6 +103,8 @@ class AlmacenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('productos')->where('id', $id)->delete();
+    
+        return redirect('/producto/create')->with('confirmacion', 'Eliminación exitosa');
     }
 }

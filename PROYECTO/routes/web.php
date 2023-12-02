@@ -23,7 +23,7 @@ Route::get('producto/create',[AlmacenController::class,'create'])->name('product
 Route::get('/producto/consulta',[AlmacenController::class,'index'])->name('producto.index');
 Route::post('/producto',[AlmacenController::class,'store'])->name('producto.store');
 Route::post('/producto/{id}/confirm',[AlmacenController::class,'update'])->name('producto.update');
-Route::post('/producto/show',[AlmacenController::class,'show'])->name('producto.show');
+Route::post('/e_producto/{id}/confirm',[AlmacenController::class,'destroy'])->name('producto.destroy');
 
 
 //RUTAS INDIVIDUALES POR CONTROLADOR:

@@ -2,19 +2,25 @@
 
 @section('contenido')
 
-@include('partials.navbar_ventas')
+@include('partials.navbar_almacen')
 <p></p>
 
 <div class="container mt-5">
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+
+     
     <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscqr">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
-        <br>
     </form>
-<br>
+    <br>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal" data-bs-target="#create">
+  
+  <button class="btn btn-primary" type="button">Nuevo producto</button>
+
+</div>
     <table class="table">
         <thead>
             <tr>
@@ -31,20 +37,29 @@
         </thead>
         <tbody>
             @foreach($consulProducto as $item)
-            @include('partials.modales_almacen')
-            
-
-               
-                   <!-- Button trigger modal ACTUALIZAR -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar{{$item->id}}">
- Actualizar
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->nombre }}</td>
+                <td>{{ $item->num_serie }}</td>
+                <td>{{ $item->marca }}</td>
+                <td>{{ $item->cantidad }}</td>
+                <td>{{ $item->costo_compra }}</td>
+                <td>{{ $item->fecha_ingreso }}</td>
+                <td>{{-- Imagen --}}</td>
+                <td>
+                    <!-- Button trigger modal ACTUALIZAR -->
+                  
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar{{$item->id}}">
+    Actualizar
 </button>
                     <!-- Button trigger modal ELIMINAR-->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar{{$item->id}}">
-  Eliminar
-</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#destroy{{$item->id}}">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
+            @include('partials.modales_almacen')
+            
             @endforeach
         </tbody>
     </table>
