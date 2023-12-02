@@ -23,12 +23,14 @@ class ValidadorAltaProveedor extends FormRequest
     {
         return [
             //
-            '_empresa' => 'required|max:5',
-            '_producto' => 'required|min:5',
-            '_Ncontacto' => 'required|min:5',
-            '_CEcontacto' => 'required|email|min:5',
-            '_TelContacto' => 'required|numeric|max:10',
+            '_nempresa' => 'required',
+            '_ncontacto' => 'required',
+            '_apcontacto' => 'required',
+            '_amcontacto' => 'required',
+            '_emailcontacto' => 'required|email',
+            '_telcontacto' => 'required|numeric|max:10',
+
         ];
-        return redirect('/alta_proveedor')->with('confirmacion','Tu información llegó al controlador');
+        return redirect('/proveedor')->with('confirmacion','Tu información llegó al controlador');
     }
 }

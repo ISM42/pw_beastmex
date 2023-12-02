@@ -23,9 +23,10 @@ class ValidadorRegistrarOC extends FormRequest
     {
         return [
             //
-            '_prod' => 'required|max:25',
-            '_cant' => 'required|numeric|min:1',
-            '_prov' => 'required|max: 25',
+            '_idprod' => 'required',
+            '_idprov' => 'required',
+            '_cantidad' => 'required',
         ];
     }
 }
+

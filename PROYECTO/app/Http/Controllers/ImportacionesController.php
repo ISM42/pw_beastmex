@@ -19,71 +19,71 @@ class ImportacionesController extends Controller
     }
 
     Public function metodoAltaProv(){ 
-        return view('altas.alta_proveedor'); 
+        return view('compras.alta_proveedor'); 
     }
 
     Public function metodoRegistroOrdenC(){ 
-        return view('altas.registrar_orden_compra'); 
+        return view('compras.registrar_orden_compra'); 
     }
 
     Public function metodoRegistrarProd(){ 
-        return view('altas.registrar_producto'); 
+        return view('almacen.registrar_producto'); 
     }
 
     Public function metodoRegistrarUsuario(){ 
-        return view('altas.registrar_usuario'); 
+        return view('gerencia.registrar_usuario'); 
     }
 
     Public function metodoRegistrarVenta(){ 
-        return view('altas.registrar_venta'); 
+        return view('ventas.registrar_venta'); 
     }
 
     Public function metodoConsultaComprasG(){ 
-        return view('consultas.consultar_compras_gerente'); 
+        return view('gerencia.consultar_compras_gerente'); 
     }
 
     Public function metodoConsultaGananciasG(){ 
-        return view('consultas.consultar_ganancias_gerente'); 
+        return view('gerencia.consultar_ganancias_gerente'); 
     }
 
     Public function metodoConsultarGanancias(){ 
-        return view('consultas.consultar_ganancias'); 
+        return view('ventas.consultar_ganancias'); 
     }
 
     Public function metodoConsultarOrdenC(){ 
-        return view('consultas.consultar_orden_compra'); 
+        return view('compras.consultar_orden_compra'); 
     }
 
     Public function metodoConsultarProd(){ 
-        return view('consultas.consultar_producto'); 
+        return view('ventas.consultar_producto'); 
     }
 
     Public function metodoConsultarProv(){ 
-        return view('consultas.consultar_proveedor'); 
+        return view('compras.consultar_proveedor'); 
     }
 
     Public function metodoConsultarTickets(){ 
-        return view('consultas.consultar_tickets_venta'); 
+        return view('ventas.consultar_tickets_venta'); 
     }
 
     Public function metodoConsultarUsuarios(){ 
-        return view('consultas.consultar_usuarios'); 
+        return view('gerencia.consultar_usuarios'); 
     }
 
     Public function metodoConsultarVentasG(){ 
-        return view('consultas.consultar_ventas_gerente'); 
+        return view('gerencia.consultar_ventas_gerente'); 
     }
 
     Public function metodoEditarProducto(){ 
-        return view('editar.editar_producto'); 
+        return view('almacen.editar_producto'); 
     }
 
     Public function metodoEditarProveedor(){ 
-        return view('editar.editar_proveedor'); 
+        return view('compras.editar_proveedor'); 
     }
 
     Public function metodoEditarUsuario(){ 
-        return view('editar.editar_usuario'); 
+        return view('gerencia.editar_usuario'); 
     }
 
 
