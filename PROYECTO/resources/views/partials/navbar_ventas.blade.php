@@ -100,7 +100,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="offcanvas-navbar.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
   </head>
   <body class="bg-body-tertiary">
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">

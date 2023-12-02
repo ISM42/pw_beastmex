@@ -10,18 +10,15 @@
 <p></p>
 @section('contenido')
 <div class="container">
-<form method= "POST" action="/producto">
+<form method= "POST" action="{{ route('producto.store') }}" enctype="multipart/form-data">
 @csrf
 
-@if(session()->has ('confirmacion'))
-<script>   Swal.fire('Información "{{session('confirmacion')}}" guardada')</script>
-@endif
 
 @if($errors->any())
 @foreach($errors->all() as $error)
-
 @endforeach
 @endif
+
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="container">
         <div class="row justify-content-center">
@@ -33,41 +30,46 @@
                 </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" name="_nproducto" value="{{old('_nproducto')}}">
+                        <input type="text" class="form-control" id="" name="_nproducto" value="{{old('_nproducto')}}">
                         <p class="text-danger fst-italic">{{$errors->first('_nproducto')}} </p>
-                        <label for="floatingPassword">Nombre producto</label>
+                        <label>Nombre producto</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="floatingPassword" name="_nserie" value="{{old('_nserie')}}">
+                        <input type="number" class="form-control" id="" name="_nserie" value="{{old('_nserie')}}">
                         <p class="text-danger fst-italic">{{$errors->first('_nserie')}} </p>
-                        <label for="floatingPassword">NO. Serie</label>
+                        <label>NO. Serie</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword"  name="_marca" value="{{old('_marca')}}" >
+                        <input type="text" class="form-control" id=""  name="_marca" value="{{old('_marca')}}" >
                         <p class="text-danger fst-italic">{{$errors->first('_marca')}} </p>
-                        <label for="floatingPassword">Marca</label>
+                        <label>Marca</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="floatingPassword" name="_cantidad" value="{{old('_cantidad')}}">
+                        <input type="number" class="form-control" id="" name="_cantidad" value="{{old('_cantidad')}}">
                         <p class="text-danger fst-italic">{{$errors->first('_cantidad')}} </p>
-                        <label for="floatingPassword">Cantidad</label>
+                        <label>Cantidad</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="email" name="_costoCompra" value="{{old('_costoCompra')}}">
+                        <input type="number" class="form-control" id="" name="_costoCompra" value="{{old('_costoCompra')}}">
                         <p class="text-danger fst-italic">{{$errors->first('_costoCompra')}} </p>
-                        <label for="floatingPassword">Costo compra</label>
+                        <label>Costo compra</label>
                     </div>
 
+                    <div class="form-floating">
+                        <input type="file" class="form-control" id="" name="_foto" value="{{old('_foto')}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_foto')}} </p>
+                        <label> Imagen del producto </label>
+                    </div>
                     
 
                     <p></p>
                     <button class="btn btn-primary w-100 py-2" type="submit">Guardar</button>
                     <p></p>
-                    <button class="btn btn-primary w-100 py-2" type="submit">Cancelar</button>
+                    <button class="btn btn-warning w-100 py-2" type="button">Cancelar</button>
                     <p class="mt-5 mb-3 text-body-secondary">&copy; 2023–2023</p>
                 </form>
             </div>

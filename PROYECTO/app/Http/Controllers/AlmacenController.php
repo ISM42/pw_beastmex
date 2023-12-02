@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorRegistrarProducto;
+use App\Imagen;
 
 use DB;
 use Carbon\carbon;
@@ -31,23 +32,34 @@ class AlmacenController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(ValidadorRegistrarProducto $request)
-    {
-        dd('Estoy en la ruta del formulario');
-         //Es el método que se va a usar para hacer INSERTS
-         DB::table('productos')->insert([
-            "nombre"=>$request->input('_nproducto'),
-            "num_serie"=>$request->input('_nserie'),
-            "marca"=>$request->input('_marca'),
-            "cantidad"=>$request->input('_cantidad'),
-            "costo_compra"=>$request->input('_costoCompra'),
-            
-            "fecha_ingreso"=>Carbon::now(),
-           // "foto"=>$request->input('_foto'),
-            "created_at"=>Carbon::now(),
-            "updated_at"=>Carbon::now(),
-        ]);
-        return redirect('/producto/create')->with('confirmacion','tu recuerdo llegó al controlador');
+{
+    $datosProducto = [
+        "nombre" => $request->input('_nproducto'),
+        "num_serie" => $request->input('_nserie'),
+        "marca" => $request->input('_marca'),
+        "cantidad" => $request->input('_cantidad'),
+        "costo_compra" => $request->input('_costoCompra'),
+        "fecha_ingreso" => Carbon::now(),
+    ];
+
+    if ($request->hasFile('imagen')) {
+        $imagen = $request->file('imagen');
+        $nombre_imagen = time() . '_' . $imagen->getClientOriginalName();
+        $ruta = $imagen->storeAs('imagenes', $nombre_imagen, 'public'); 
+        $datosProducto['foto'] = $ruta; // Añade la ruta de la imagen al array de datos
     }
+
+    DB::table('productos')->insert(array_merge(
+        $datosProducto,
+        [
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]
+    ));
+
+    return redirect('/producto/create')->with('confirmacion', 'Tu producto ha sido registrado correctamente');
+}
+
 
     /**
      * Display the specified resource.
