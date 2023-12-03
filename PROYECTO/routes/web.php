@@ -7,6 +7,7 @@ use App\http\controllers\AlmacenController;
 use App\http\controllers\ComprasController;
 use App\http\controllers\Compras2;
 use App\http\controllers\VentasController;
+use App\http\controllers\Ventas2Controller;
 use App\http\controllers\GerenciaController;
 
 
@@ -47,6 +48,16 @@ Route::get('/clientes/consulta',[VentasController::class,'index'])->name('client
 Route::post('/clientes',[VentasController::class,'store'])->name('clientes.store');
 Route::post('/clientes/{id}/confirm',[VentasController::class,'update'])->name('clientes.update');
 Route::post('/e_clientes/{id}/confirm',[VentasController::class,'destroy'])->name('clientes.destroy');
+
+// RUTAS CRUD VENTAS (Ventas2Controller (controlador))
+Route::get('ventas/create', [Ventas2Controller::class, 'create'])->name('ventas.create');
+Route::get('/ventas/consulta', [Ventas2Controller::class, 'index'])->name('ventas.index');
+Route::post('/ventas', [Ventas2Controller::class, 'store'])->name('ventas.store');
+Route::post('/ventas/{id}/confirm', [Ventas2Controller::class, 'update'])->name('ventas.update');
+Route::post('/e_ventas/{id}/confirm', [Ventas2Controller::class, 'destroy'])->name('ventas.destroy');
+Route::get('/obtener-precio-producto/{id}', [Ventas2Controller::class, 'obtenerPrecioProducto']);
+
+
 
 
 //RUTAS INDIVIDUALES POR CONTROLADOR:
