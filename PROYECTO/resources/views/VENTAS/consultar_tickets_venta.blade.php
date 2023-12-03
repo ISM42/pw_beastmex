@@ -43,6 +43,7 @@
                   <td>$150.00</td>
                   <td>
                     <button class="btn btn-primary btn-sm">Descargar</button>
+                    <a href="http://resources.test/views/fpdf/Tickets_Venta.php" target="_blank" class="btn btn-success"> "Generar reporte</a>
                     <button class="btn btn-danger btn-sm">Eliminar</button>
                   </td>
                 </tr>
