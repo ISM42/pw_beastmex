@@ -23,6 +23,12 @@ class ValidadorRegistrarVenta extends FormRequest
     {
         return [
             //
+            '_nombrecliente' => 'required',
+            '_apcliente' => 'required',
+            '_amcliente' => 'required',
+            '_emailcliente' => 'required|email',
+            '_telcliente' => 'required|numeric|max:10',
+            
         ];
     }
 }

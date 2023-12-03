@@ -23,6 +23,12 @@ class ValidadorRegistrarUsuario extends FormRequest
     {
         return [
             //
+            '_nusuario' => 'required|max:20',
+            '_ap' => 'required|max:15',
+            '_am' => 'required|max:15',
+            '_email' => 'required|email',
+            '_puesto' => 'required|max:20',
+            '_password' => 'required|password',
         ];
     }
 }
