@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidadorRegistrarVenta extends FormRequest
+class ValidadorVentas2 extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,13 +22,10 @@ class ValidadorRegistrarVenta extends FormRequest
     public function rules(): array
     {
         return [
-            //VALIDACIONES REGISTRO CLIENTES
-            '_nombrecliente' => 'required',
-            '_apcliente' => 'required',
-            '_amcliente' => 'required',
-            '_emailcliente' => 'required|email',
-            '_telcliente' => 'required|numeric|max:10',
-            
+            '_cv' => 'required',
+        '_pu' => 'required',
+        '_idproducto' => 'required|exists:productos,id',
+        '_idcliente' => 'required|exists:clientes,id',
         ];
     }
 }
