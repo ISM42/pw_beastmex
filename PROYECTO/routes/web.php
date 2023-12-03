@@ -41,11 +41,19 @@ Route::post('/compras/{id}/confirm',[Compras2::class,'update'])->name('compras.u
 Route::post('/e_compras/{id}/confirm',[Compras2::class,'destroy'])->name('compras.destroy');
 
 
+//RUTAS CRUD CLIENTES
+Route::get('clientes/create',[VentasController::class,'create'])->name('clientes.create');
+Route::get('/clientes/consulta',[VentasController::class,'index'])->name('clientes.index');
+Route::post('/clientes',[VentasController::class,'store'])->name('clientes.store');
+Route::post('/clientes/{id}/confirm',[VentasController::class,'update'])->name('clientes.update');
+Route::post('/e_clientes/{id}/confirm',[VentasController::class,'destroy'])->name('clientes.destroy');
+
+
 //RUTAS INDIVIDUALES POR CONTROLADOR:
 
 Route::get('/',[ImportacionesController::class,'metodoLogin'])->name('inicio');
-Route::get('/alta_proveedor',[ImportacionesController::class,'metodoAltaProv'])->name('alta_prov');
-Route::get('/reg_orden_compra',[ImportacionesController::class,'metodoRegistroOrdenC'])->name('reg_oc');
+//Route::get('/alta_proveedor',[ImportacionesController::class,'metodoAltaProv'])->name('alta_prov');
+//Route::get('/reg_orden_compra',[ImportacionesController::class,'metodoRegistroOrdenC'])->name('reg_oc');
 
 Route::get('/registro_usuario',[ImportacionesController::class,'metodoRegistrarUsuario'])->name('reg_usuario');
 Route::get('/registro_venta',[ImportacionesController::class,'metodoRegistrarVenta'])->name('reg_venta');
@@ -54,7 +62,7 @@ Route::get('/registro_venta',[ImportacionesController::class,'metodoRegistrarVen
 Route::get('/consulta_compras',[ImportacionesController::class,'metodoConsultaComprasG'])->name('c_compras');
 
 Route::get('/consulta_ganancias_gerente',[ImportacionesController::class,'metodoConsultaGananciasG'])->name('c_ganancias_g');
-Route::get('/consulta_oc',[ImportacionesController::class,'metodoConsultarOrdenC'])->name('c_oc');
+//Route::get('/consulta_oc',[ImportacionesController::class,'metodoConsultarOrdenC'])->name('c_oc');
 
 
 Route::get('/consulta_tickets',[ImportacionesController::class,'metodoConsultarTickets'])->name('c_tickets');
