@@ -1,33 +1,30 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
-    <a class="navbar-brand">IMPORTACIONES BEASTMEX</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/">IMPORTACIONES BEASTMEX</a>
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Registrar Proveedor</a>
+          <a class="nav-link" aria-current="page" href="/proveedor/consulta">Proveedores</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/producto/consulta">Consultar Producto</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="">Consultar Proveedor</a>
+          <a class="nav-link" aria-current="page" href="/consulta_oc">Compras</a>
         </li>
-
+      </ul>
+      
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="">Consultar Producto</a>
+          <a class="nav-link" href="/login">Salir</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="">Generar orden de compra</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="">Consultar orden de compra</a>
-        </li>
-
+      </ul>
     </div>
   </div>
 </nav>

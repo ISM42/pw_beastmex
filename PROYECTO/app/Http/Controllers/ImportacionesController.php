@@ -4,79 +4,109 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ValidadorAltaProveedor;
+use App\Http\Requests\ValidadorRegistrarOC;
+use App\Http\Requests\ValidadorRegistrarProducto;
+use App\Http\Requests\ValidadorRegistrarUsuario;
+use App\Http\Requests\ValidadorRegistrarVenta;
+
 class ImportacionesController extends Controller
 {
-    //
+    //MÉTODOS PARA MOSTRAR VISTAS
     Public function metodoLogin(){ 
         return view('login'); 
  
     }
 
     Public function metodoAltaProv(){ 
-        return view(‘alta_proveedor’); 
+        return view('compras.alta_proveedor'); 
     }
 
     Public function metodoRegistroOrdenC(){ 
-        return view(‘registrar_orden_compra’); 
+        return view('compras.registrar_orden_compra'); 
     }
 
     Public function metodoRegistrarProd(){ 
-        return view(‘registrar_producto’); 
+        return view('almacen.registrar_producto'); 
     }
 
     Public function metodoRegistrarUsuario(){ 
-        return view(‘registrar_usuario’); 
+        return view('gerencia.registrar_usuario'); 
     }
 
     Public function metodoRegistrarVenta(){ 
-        return view(‘registrar_venta’); 
+        return view('ventas.registrar_venta'); 
     }
 
     Public function metodoConsultaComprasG(){ 
-        return view(‘consultar_compras_gerente’); 
+        return view('gerencia.consultar_compras_gerente'); 
     }
 
     Public function metodoConsultaGananciasG(){ 
-        return view(‘consultar_ganancias_gerente’); 
+        return view('gerencia.consultar_ganancias_gerente'); 
     }
 
     Public function metodoConsultarGanancias(){ 
-        return view(‘consultar_ganancias’); 
+        return view('ventas.consultar_ganancias'); 
     }
 
     Public function metodoConsultarOrdenC(){ 
-        return view(‘consultar_orden_compra’); 
+        return view('compras.consultar_orden_compra'); 
     }
 
     Public function metodoConsultarProd(){ 
-        return view(‘consultar_producto’); 
+        return view('ventas.consultar_producto'); 
     }
 
     Public function metodoConsultarProv(){ 
-        return view(‘consultar_proveedor’); 
+        return view('compras.consultar_proveedor'); 
     }
 
     Public function metodoConsultarTickets(){ 
-        return view(‘consultar_tickets_venta’); 
+        return view('ventas.consultar_tickets_venta'); 
     }
 
     Public function metodoConsultarUsuarios(){ 
-        return view(‘consultar_usuarios’); 
+        return view('gerencia.consultar_usuarios'); 
     }
 
     Public function metodoConsultarVentasG(){ 
-        return view(‘consultar_ventas_gerente’); 
+        return view('gerencia.consultar_ventas_gerente'); 
     }
 
     Public function metodoEditarProducto(){ 
-        return view(‘editar_producto’); 
+        return view('almacen.editar_producto'); 
     }
 
     Public function metodoEditarProveedor(){ 
-        return view(‘editar_proveedor’); 
+        return view('compras.editar_proveedor'); 
     }
 
     Public function metodoEditarUsuario(){ 
-        return view(‘editar_usuario’); 
+        return view('gerencia.editar_usuario'); 
+    }
+
+
+    // MÉTODOS PARA GUARDAR INFO EN FORMULARIOS
+
+    public function GuardarAltaP(ValidadorAltaProveedor $req){
+    return redirect('/alta_proveedor')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarOrdenC(ValidadorRegistrarOC $req){
+    return redirect('/reg_orden_compra')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegProd(ValidadorRegistrarProducto $req){
+    return redirect('/reg_producto')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegUsuario(ValidadorRegistrarUsuario $req){
+    return redirect('/registro_usuario')->with('confirmacion','Tu información llegó al controlador'); 
+    }
+
+    public function GuardarRegVenta(ValidadorRegistrarVenta $req){
+    return redirect('/registro_venta')->with('confirmacion','Tu información llegó al controlador'); 
     }
 }
+
