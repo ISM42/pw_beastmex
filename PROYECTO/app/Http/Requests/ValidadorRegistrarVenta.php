@@ -23,15 +23,12 @@ class ValidadorRegistrarVenta extends FormRequest
     {
         return [
             //
-            '_fecha' => 'required|date_format',
-            '_ncliente' => 'required|max:15',
-            '_ap' => 'required |max:15',
-            '_am' => 'required|max:15',
-            '_prod' => 'required|max:15',
-            '_marca' => 'required|max:15',
-            '_cantidad' => 'required|numeric| min:5',
-            '_precioventa' => 'required|numeric',
-            '_totalcompra' => 'required|numeric',
+            '_nombrecliente' => 'required',
+            '_apcliente' => 'required',
+            '_amcliente' => 'required',
+            '_emailcliente' => 'required|email',
+            '_telcliente' => 'required|numeric|max:10',
+            
         ];
     }
 }
