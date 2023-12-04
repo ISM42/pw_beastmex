@@ -34,12 +34,17 @@
          
       @foreach($consulOC as $item)
     <tr>
-        <td>{{ $item->id }}</td>
+        <td>{{ strval($item->id) }}</td>
         <td>{{ $item->nombre_producto }}</td>
         <td>{{ $item->nombre_empresa }}</td>
         <td>{{ $item->cantidad }}</td>
         <td>{{ $item->fecha_compra }}</td>
         <td>
+        <form action="{{ route('compras.pdf_compras') }}" method="GET">
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Ticket
+                    </button>
+                </form>
             <button class="btn btn-primary btn-sm">Editar</button>
             <button class="btn btn-danger btn-sm">Eliminar</button>
         </td>

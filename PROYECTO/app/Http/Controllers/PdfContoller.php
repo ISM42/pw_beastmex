@@ -5,38 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Illuminate\Support\Facades\DB;
-use App\Models\PdfModel;
-use Carbon\Carbon;
-use Dompdf\Dompdf;
+use DB;
+use PDF;
 /* use vendor\pdf\dompdf; */
-
 
 
 class PdfContoller extends Controller
 {
+    public function generarPDF()
+    {
+        $productos = DB::table('productos')->get();
+        
+        $pdf = PDF::loadView('almacen.pdf', compact('productos'));
 
-    public function generate(Request $request, string $id)
-{
-    require_once 'vendor/autoload.php';
-    $pdf = new \Dompdf\Dompdf();
-    $pdf->setPaper('A4', 'portrait');
-    $pdf->render();
-    $pdf->stream();
-    DB::table('productos')->where('id',$id)->generate([
-        "nombre"=>$request->input('_nproducto'),
-        "num_serie"=>$request->input('_nserie'),
-        "marca"=>$request->input('_marca'),
-        "cantidad"=>$request->input('_cantidad'),
-        "costo_compra"=>$request->input('_costoCompra'),
-        "updated_at"=>Carbon::now(),
-    ]);
+        return $pdf->download('reporte_productos.pdf');
+    }
 
-    return redirect('/reporte')->with('confirmacion','Actualización exitosa');
+    public function pdfTicket()
+    {
+        $ventas = DB::table('ventas')->get();
+        $customPaper = array(0, 0, 300, 300);
+        $pdf = PDF::loadView('ventas.pdf_tickets', compact('ventas'))->setPaper($customPaper);
+        return $pdf->download('ORDEN DE COMPRA.pdf');
+    }
 
+    public function pdfTicket_compra()
+    {
+        $compras = DB::table('compras')->get();
+        $customPaper = array(0, 0, 227.559, 300);
+        $pdf = PDF::loadView('compras.pdf_compras', compact('compras'))->setPaper($customPaper);
+        return $pdf->download('ORDEN DE COMPRA.pdf');
+    }
 }
 
-public function enviarCorreo($destinatario, $asunto, $mensaje) {
+
+/* public function enviarCorreo($destinatario, $asunto, $mensaje) {
     require 'vendor/autoload.php';
 
     $mail = new PHPMailer(true);
@@ -64,9 +67,9 @@ public function enviarCorreo($destinatario, $asunto, $mensaje) {
     } catch (Exception $e) {
         echo 'Error al enviar el correo: ', $mail->ErrorInfo;
     }
-}
+} */
 
-public function formCorreo(Request $request) {
+/* public function formCorreo(Request $request) {
     // Validar y procesar los datos del formulario
     $destinatario = $request->input('destinatario');
     $asunto = $request->input('asunto');
@@ -76,12 +79,12 @@ public function formCorreo(Request $request) {
     $this->enviarCorreo($destinatario, $asunto, $mensaje);
 
     // Puedes redirigir a una página de éxito o hacer lo que desees aquí
-}
+} */
 
 
 
 
-}
+
 
 
 /* 

@@ -29,7 +29,12 @@ Route::post('/producto/{id}/confirm',[AlmacenController::class,'update'])->name(
 Route::post('/e_producto/{id}/confirm',[AlmacenController::class,'destroy'])->name('producto.destroy');
 
 //ruta para el pdf de productos almacen
-Route::get('/reporte', [PdfContoller::class,'generate'])->name('reporte.generate');
+/* Route::get('/reporte', [PdfContoller::class,'generate'])->name('reporte.generate'); */
+Route::get('/almacen/pdf', [PdfContoller::class, 'generarPDF'])->name('almacen.pdf');
+Route::get('/ventas/pdf_tickets', [PdfContoller::class, 'pdfTicket'])->name('ventas.pdf_tickets');
+Route::get('/compras/pdf_compras', [PdfContoller::class, 'pdfTicket_compra'])->name('compras.pdf_compras');
+
+
 
 //ruta para enviar correo
 Route::get('/enviar_correo', [PdfContoller::class, 'enviarCorreo']);

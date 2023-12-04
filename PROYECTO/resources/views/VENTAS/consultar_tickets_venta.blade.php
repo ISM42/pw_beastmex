@@ -30,16 +30,21 @@
                 @foreach($consulVentas as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->id_producto }}</td>
+                        <td>{{ strval($item->id_producto) }}</td>
                         <td>{{ $item->id_cliente }}</td>
                         <td>{{ $item->cantidad_vendida }}</td>
                         <td>{{ $item->precio_unitario }}</td>
                         <td>{{ $item->total_venta }}</td>
                         <td>{{ $item->fecha_venta }}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm">Editar</button>
+                        <form action="{{ route('ventas.pdf_tickets') }}" method="GET">
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Ticket
+                    </button>
+                </form>
+                            <button class="btn btn-primary btn-sm">Editar</button><i class="bi bi-file-earmark-pdf">
                             <button class="btn btn-danger btn-sm">Eliminar</button>
-                            <a href="" target="_blank" class="btn btn-success"> "Generar reporte
+                            
                             
 
                             </a>
