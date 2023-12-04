@@ -21,6 +21,15 @@
   <button class="btn btn-primary" type="button">Nuevo producto</button>
 
 </div>
+
+<div class="col-md-2 text-end">
+                <form action="{{ route('almacen.pdf') }}" method="GET">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-file-earmark-pdf"></i> Generar PDF
+                    </button>
+                </form>
+            </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -58,7 +67,8 @@
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#destroy{{$item->id}}">
                         Eliminar
                     </button>
-                </td>
+
+            
             </tr>
             @include('partials.modales_almacen')
             

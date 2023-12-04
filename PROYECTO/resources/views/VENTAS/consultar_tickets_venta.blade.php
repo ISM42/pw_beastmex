@@ -37,8 +37,17 @@
                         <td>{{ $item->total_venta }}</td>
                         <td>{{ $item->fecha_venta }}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm">Editar</button>
+                        <form action="{{ route('ventas.pdf_tickets') }}" method="GET">
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Ticket
+                    </button>
+                </form>
+                            <button class="btn btn-primary btn-sm">Editar</button><i class="bi bi-file-earmark-pdf">
                             <button class="btn btn-danger btn-sm">Eliminar</button>
+                            
+                            
+
+                            </a>
                         </td>
                     </tr>
                 @endforeach
@@ -50,5 +59,4 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
 @endsection('contenido')
