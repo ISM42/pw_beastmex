@@ -14,7 +14,7 @@ class ImportacionesController extends Controller
 {
     //MÉTODOS PARA MOSTRAR VISTAS
     Public function metodoLogin(){ 
-        return view('login'); 
+        return view('home2'); 
  
     }
 
