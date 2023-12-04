@@ -133,4 +133,7 @@ class AlmacenController extends Controller
     
         return redirect('/producto/create')->with('confirmacion', 'Eliminación exitosa');
     }
+
+   
+    
 }

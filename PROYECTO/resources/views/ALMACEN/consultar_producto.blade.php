@@ -58,6 +58,14 @@
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#destroy{{$item->id}}">
                         Eliminar
                     </button>
+
+                <!--     Generar PDF -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" target="_blank" data-bs-target="#pdf{{$item->id}}">
+                Generar PDF
+                    </button>
+                    <a href="#pdf{{$item->id}}" class="btn btn-danger" target="_blank">
+                        Generar PDF</a>
+</a>
                 </td>
             </tr>
             @include('partials.modales_almacen')

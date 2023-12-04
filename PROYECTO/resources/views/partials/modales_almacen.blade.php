@@ -75,6 +75,8 @@
   
 
 
+
+
 <!-- MODAL ACTUALIZAR -->
 
 
@@ -170,4 +172,67 @@
     </div>
   </div>
 
+
+
+
+  
+
+<!-- MODAL PDF -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="pdf{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar información</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form method="post" action="/reporte/{{$item->id}}" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" name="_nproducto" value="{{$item->nombre}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_nproducto')}} </p>
+                        <label for="floatingPassword">Nombre producto</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingPassword" name="_nserie" value="{{$item->num_serie}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_nserie')}} </p>
+                        <label for="floatingPassword">No. Serie</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword"  name="_marca" value="{{$item->marca}}" >
+                        <p class="text-danger fst-italic">{{$errors->first('_marca')}} </p>
+                        <label for="floatingPassword">Marca</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingPassword" name="_cantidad" value="{{$item->cantidad}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_cantidad')}} </p>
+                        <label for="floatingPassword">Cantidad</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="email" name="_costoCompra" value="{{$item->costo_compra}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_costoCompra')}} </p>
+                        <label for="floatingPassword">Costo compra</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="file" class="form-control" id="email" name="_foto" value="{{$item->foto}}">
+                        <p class="text-danger fst-italic">{{$errors->first('_foto')}} </p>
+                        <label for="floatingPassword">Imagen</label>
+                    </div>
+
+                </div>
+
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+</div>
+</form>
 

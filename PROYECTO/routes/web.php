@@ -9,6 +9,7 @@ use App\http\controllers\Compras2;
 use App\http\controllers\VentasController;
 use App\http\controllers\Ventas2Controller;
 use App\http\controllers\GerenciaController;
+use App\Http\Controllers\PdfContoller;
 
 
 /*Route::get('/', function () {
@@ -26,6 +27,14 @@ Route::get('/producto/consulta',[AlmacenController::class,'index'])->name('produ
 Route::post('/producto',[AlmacenController::class,'store'])->name('producto.store');
 Route::post('/producto/{id}/confirm',[AlmacenController::class,'update'])->name('producto.update');
 Route::post('/e_producto/{id}/confirm',[AlmacenController::class,'destroy'])->name('producto.destroy');
+
+//ruta para el pdf de productos almacen
+Route::get('/reporte', [PdfContoller::class,'generate'])->name('reporte.generate');
+
+//ruta para enviar correo
+Route::get('/enviar_correo', [PdfContoller::class, 'enviarCorreo']);
+
+
 
 //RUTAS CRUD PROVEEDORES
 Route::get('proveedor/create',[ComprasController::class,'create'])->name('proveedor.create');
@@ -90,6 +99,8 @@ Route::post('/guardarRegOC',[ImportacionesController::class,'GuardarOrdenC'])->n
 
 Route::post('/guardarRegUsuario',[ImportacionesController::class,'GuardarRegUsuario'])->name('guardarRU');
 Route::post('/guardarRegVenta',[ImportacionesController::class,'GuardarRegVenta'])->name('guardarRV');
+
+
 
 //otras rutas
 Auth::routes();
