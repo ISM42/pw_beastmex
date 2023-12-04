@@ -116,4 +116,55 @@ class ventas2Controller extends Controller
     {
         //
     }
+
+    public function calcularGananciasVenta()
+{
+    $gananciasVentas = DB::table('ventas')
+        ->join('productos', 'ventas.id_producto', '=', 'productos.id')
+        ->join('clientes', 'ventas.id_cliente', '=', 'clientes.id')
+        ->select(
+            'ventas.id',
+            'productos.nombre as nombre_producto',
+            'clientes.nombre as nombre_cliente',
+            'ventas.cantidad_vendida',
+            'productos.costo_compra',
+            'ventas.precio_unitario',
+            DB::raw('(ventas.precio_unitario - productos.costo_compra) * ventas.cantidad_vendida AS ganancia')
+        )
+        ->get();
+
+    return view('ventas.ganancias_por_venta', compact('gananciasVentas'));
+}
+
+public function calcularGananciasPorMes(Request $request)
+{
+    $fecha = Carbon::parse($request->input('fecha'));
+    $mes = $fecha->month;
+    $anio = $fecha->year;
+
+    $gananciasPorMes = DB::table('ventas')
+        ->select(DB::raw('MONTH(fecha_venta) as mes, SUM(total_venta) as ganancia'))
+        ->whereMonth('fecha_venta', $mes)
+        ->whereYear('fecha_venta', $anio)
+        ->groupBy(DB::raw('MONTH(fecha_venta)'))
+        ->get();
+
+    $resultado = [];
+    foreach ($gananciasPorMes as $ganancia) {
+        $nombreMes = Carbon::createFromDate(null, $ganancia->mes)->monthName;
+        $resultado[$nombreMes] = $ganancia->ganancia;
+    }
+
+    return view('ventas.ganancias_por_mes', ['gananciasPorMes' => $resultado]);
+}
+
+public function calcularGananciasTodas()
+{
+    $ganancias = DB::table('ventas')
+        ->join('productos', 'ventas.id_producto', '=', 'productos.id')
+        ->selectRaw('SUM((ventas.cantidad_vendida * productos.precio_venta) - (ventas.cantidad_vendida * productos.costo_compra)) as total_ganancias')
+        ->first();
+
+    return view('ventas.ganancias_totales', compact('ganancias'));
+}
 }

@@ -57,7 +57,9 @@ Route::post('/ventas/{id}/confirm', [Ventas2Controller::class, 'update'])->name(
 Route::post('/e_ventas/{id}/confirm', [Ventas2Controller::class, 'destroy'])->name('ventas.destroy');
 Route::get('/obtener-precio-producto/{id}', [Ventas2Controller::class, 'obtenerPrecioProducto']);
 
-
+Route::get('/ganancias-por-venta', [Ventas2Controller::class, 'calcularGananciasVenta'])->name('ganancias.venta');
+Route::post('/ganancias-por-mes', [Ventas2Controller::class, 'calcularGananciasPorMes'])->name('ganancias.por.mes');
+Route::get('/ganancias-todas', [Ventas2Controller::class, 'calcularGananciasTodas'])->name('ganancias.todas');
 
 
 //RUTAS INDIVIDUALES POR CONTROLADOR:
