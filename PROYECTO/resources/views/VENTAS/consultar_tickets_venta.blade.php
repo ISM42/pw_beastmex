@@ -30,7 +30,7 @@
                 @foreach($consulVentas as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ strval($item->id_producto) }}</td>
+                        <td>{{ $item->id_producto }}</td>
                         <td>{{ $item->id_cliente }}</td>
                         <td>{{ $item->cantidad_vendida }}</td>
                         <td>{{ $item->precio_unitario }}</td>
