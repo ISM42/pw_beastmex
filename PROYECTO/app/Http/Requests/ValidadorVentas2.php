@@ -22,10 +22,8 @@ class ValidadorVentas2 extends FormRequest
     public function rules(): array
     {
         return [
-            '_cv' => 'required',
-        '_pu' => 'required',
-        '_idproducto' => 'required|exists:productos,id',
-        '_idcliente' => 'required|exists:clientes,id',
+           
+      
         ];
     }
 }

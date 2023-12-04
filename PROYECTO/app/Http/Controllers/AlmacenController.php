@@ -34,7 +34,8 @@ class AlmacenController extends Controller
         )
         ->when($buscarpor, function ($query) use ($buscarpor) {
             $query->where('nombre', 'like', '%' . $buscarpor . '%')
-                ->orWhere('num_serie', 'like', '%' . $buscarpor . '%');
+                ->orWhere('num_serie', 'like', '%' . $buscarpor . '%')
+                ->orWhere('marca', 'like', '%' . $buscarpor . '%');
         })
         ->orderBy('cantidad', 'asc') // Ordena por cantidad de unidades en existencia en orden ascendente
         ->get();

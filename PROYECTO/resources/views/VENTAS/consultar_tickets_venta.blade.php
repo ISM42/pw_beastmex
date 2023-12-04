@@ -31,7 +31,7 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->id_producto }}</td>
-                        <td>{{ $item->id_clienteesa }}</td>
+                        <td>{{ $item->id_cliente }}</td>
                         <td>{{ $item->cantidad_vendida }}</td>
                         <td>{{ $item->precio_unitario }}</td>
                         <td>{{ $item->total_venta }}</td>

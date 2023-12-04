@@ -22,7 +22,7 @@ class ventas2Controller extends Controller
             $consulVentas = DB::table('ventas')
                 ->where(function ($query) use ($buscarpor) {
                     $query->where('nombre', 'like', '%' . $buscarpor . '%')
-                          ->orWhere('apellido_p', 'like', '%' . $buscarpor . '%');
+                          ->orWhere('marca', 'like', '%' . $buscarpor . '%');
                 })
                 ->get();
         } else {
@@ -34,6 +34,8 @@ class ventas2Controller extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+     
     public function create()
     {
         $productos = DB::table('productos')->get();
@@ -44,26 +46,38 @@ class ventas2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ValidadorVentas2 $request)
-    {
-       
-        $cantidadVendida = $request->input('_cv');
-        $precioUnitario = $request->input('_pu');
-        $totalVenta = $cantidadVendida * $precioUnitario;
     
-        DB::table('ventas')->insert([
-            "id_producto" => $request->input('_idproducto'),
-            "id_cliente" => $request->input('_idcliente'),
-            "cantidad_vendida" => $cantidadVendida,
-            "precio_unitario" => $precioUnitario,
-            "total_venta" => $totalVenta,
-            "fecha_venta" => Carbon::now(),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
-                ]);
-                    return redirect('')->with('confirmacion', 'Registro exitoso');
+
+    public function store(Request $request)
+    {
+        $producto = DB::table('productos')->where('id', $request->input('producto'))->first();
+        $cliente = DB::table('clientes')->where('id', $request->input('cliente'))->first();
+    
+        if ($producto && $cliente) {
+            $precioUnitario = $producto->costo_compra;
+            $precioVenta = $precioUnitario * 1.55; // Calculando el precio de venta con un 55% de aumento
+    
+            $totalVenta = $request->input('cantidad') * $precioVenta;
+    
+            DB::table('ventas')->insert([
+                'id_producto' => $request->input('producto'),
+                'id_cliente' => $request->input('cliente'),
+                'cantidad_vendida' => $request->input('cantidad'),
+                'precio_unitario' => $precioVenta,
+                'total_venta' => $totalVenta,
+                'fecha_venta' => $request->input('fecha'),
+            ]);
+    
+            return redirect()->route('ventas.index')->with('success', 'Venta registrada correctamente.');
+        }
+    
+        return back()->with('error', 'Error al registrar la venta. Producto o cliente no encontrados.');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function obtenerPrecioProducto($id)
     {

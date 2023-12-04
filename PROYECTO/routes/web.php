@@ -15,9 +15,9 @@ use App\http\controllers\GerenciaController;
     return view('login');
 });*/
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
+/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
 /*Route::view('/home','home'); //ruta prueba para commit*/
 
 //RUTAS CRUD ALMACEN
@@ -50,7 +50,7 @@ Route::post('/clientes/{id}/confirm',[VentasController::class,'update'])->name('
 Route::post('/e_clientes/{id}/confirm',[VentasController::class,'destroy'])->name('clientes.destroy');
 
 // RUTAS CRUD VENTAS (Ventas2Controller (controlador))
-Route::get('ventas/create', [Ventas2Controller::class, 'create'])->name('ventas.create');
+Route::get('ventas/create', [Ventas2Controller::class, 'create'])->name('ventas.create')->middleware('auth');
 Route::get('/ventas/consulta', [Ventas2Controller::class, 'index'])->name('ventas.index');
 Route::post('/ventas', [Ventas2Controller::class, 'store'])->name('ventas.store');
 Route::post('/ventas/{id}/confirm', [Ventas2Controller::class, 'update'])->name('ventas.update');
