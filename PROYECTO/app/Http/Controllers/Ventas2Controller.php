@@ -44,24 +44,37 @@ class ventas2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ValidadorVentas2 $request)
+    public function store(Request $request)
     {
-       
-        $cantidadVendida = $request->input('_cv');
-        $precioUnitario = $request->input('_pu');
-        $totalVenta = $cantidadVendida * $precioUnitario;
+
+        $consulVentas = DB::table('ventas')
+    ->join('productos', 'ventas.id_producto', '=', 'productos.id')
+    ->join('clientes', 'ventas.id_cliente', '=', 'clientes.id')
+    ->select('ventas.*', 'productos.nombre as nombre_producto', 'clientes.nombre as nombre_cliente')
+    ->get();
+
+        $producto = DB::table('productos')->where('id', $request->input('producto'))->first();
+        $cliente = DB::table('clientes')->where('id', $request->input('cliente'))->first();
     
-        DB::table('ventas')->insert([
-            "id_producto" => $request->input('_idproducto'),
-            "id_cliente" => $request->input('_idcliente'),
-            "cantidad_vendida" => $cantidadVendida,
-            "precio_unitario" => $precioUnitario,
-            "total_venta" => $totalVenta,
-            "fecha_venta" => Carbon::now(),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
-                ]);
-                    return redirect('')->with('confirmacion', 'Registro exitoso');
+        if ($producto && $cliente) {
+            $precioUnitario = $producto->costo_compra;
+            $precioVenta = $precioUnitario * 1.55; // Calculando el precio de venta con un 55% de aumento
+    
+            $totalVenta = $request->input('cantidad') * $precioVenta;
+    
+            DB::table('ventas')->insert([
+                'id_producto' => $request->input('producto'),
+                'id_cliente' => $request->input('cliente'),
+                'cantidad_vendida' => $request->input('cantidad'),
+                'precio_unitario' => $precioVenta,
+                'total_venta' => $totalVenta,
+                'fecha_venta' => $request->input('fecha'),
+            ]);
+    
+            return redirect()->route('ventas.index')->with('success', 'Venta registrada correctamente.');
+        }
+    
+        return back()->with('error', 'Error al registrar la venta. Producto o cliente no encontrados.');
     }
 
 
